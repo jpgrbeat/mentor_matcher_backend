@@ -5,5 +5,6 @@ class User < ApplicationRecord
   has_many :mentors, through: :mentor_matches
   has_many :mentees, through: :mentee_matches
   has_many :user_skills
+  has_secure_password
 
 end
