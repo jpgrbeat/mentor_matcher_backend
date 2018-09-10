@@ -2,6 +2,7 @@ class ApplicationController < ActionController::API
   before_action :authenticate
   private
  def authenticate
+   
    token = request.headers['Authorization'].split(' ')[1]
    decoded_payload = decode_token(token)
    @current_user = User.find(decoded_payload['user_id'])

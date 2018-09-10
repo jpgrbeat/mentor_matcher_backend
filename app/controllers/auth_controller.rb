@@ -12,7 +12,7 @@ class AuthController < ApplicationController
       token = generate_token(user)
       render json: { token: token, user: { email: user.email, name: user.name } }, status: 200
     else
-      render "Failed" status: 404
+      render "Failed", status: 404
     end
   end
 
