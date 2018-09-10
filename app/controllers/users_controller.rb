@@ -3,11 +3,31 @@ class UsersController < ApplicationController
   before_action :find_user, only: [:show, :update, :destroy]
 
   def index
-    render json: User.all
+    render json: User.all.to_json(only: [:name, :job_title, :type_of, :location, :bio, :email],
+      include: [
+        {mentor_matches:
+          {
+          only: [:mentor_id],
+          include: [mentor: {only: [:name, :job_title, :email, :location, :bio]}]
+          }
+        },
+        {mentee_matches:
+          {
+          only: [:mentee_id],
+          include: [mentee: {only: [:name, :job_title, :email, :location, :bio]}]
+          }
+        },
+        {user_skills: {
+          only: [:number_of_years_experience],
+          include: [
+            skill: {only: :name}
+          ]
+          }
+        }
+      ])
   end
 
   def create
-    debugger
     render json: User.create(user_params)
   end
 
