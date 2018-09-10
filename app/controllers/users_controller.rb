@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :find_user, only: [:show, :update, :destroy]
 
   def index
-    render json: User.all.to_json(only: [:name, :job_title, :type_of, :location, :bio, :email],
+    render json: User.all.to_json(only: [:name, :job_title, :type_of, :location, :bio, :email, :id],
       include: [
         {mentor_matches:
           {

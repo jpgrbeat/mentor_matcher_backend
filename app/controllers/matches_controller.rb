@@ -1,5 +1,9 @@
 class MatchesController < ApplicationController
 
+  def index
+    render json: Match.all
+  end
+
   def create
     render json: Match.create(match_params)
   end
