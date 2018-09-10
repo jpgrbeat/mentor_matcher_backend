@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :find_user, only: [:show, :update, :destroy]
+  skip_before_action :authenticate, only: [:index]
 
   def index
     render json: User.all.to_json(only: [:name, :job_title, :type_of, :location, :bio, :email, :id],
