@@ -15,6 +15,6 @@ class MatchesController < ApplicationController
 
   private
   def match_params
-    params.permit(:match).require(:mentor_id, :mentee_id)
+    params.require(:match).permit(:mentor_id, :mentee_id)
   end
 end
