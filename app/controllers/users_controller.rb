@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    debugger
     render json: User.create(user_params)
   end
 
