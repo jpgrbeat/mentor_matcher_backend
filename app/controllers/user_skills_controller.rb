@@ -7,6 +7,7 @@ class UserSkillsController < ApplicationController
   end
 
   def create
+  
     render json: UserSkill.create(user_skill_params)
   end
 
