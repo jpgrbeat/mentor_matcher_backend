@@ -35,6 +35,13 @@ class UsersController < ApplicationController
     render json: my_current_user.to_json(only: [:name, :job_title, :type_of, :id])
   end
 
+  def update
+    my_current_user.update(user_params)
+    if my_current_user.save
+      render json: my_current_user, status: :accepted
+    end
+  end
+
   private
 
   def user_params
