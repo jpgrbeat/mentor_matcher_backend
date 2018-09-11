@@ -7,13 +7,13 @@ class UsersController < ApplicationController
       include: [
         {mentor_matches:
           {
-          only: [:mentor_id],
+          only: [:mentor_id, :id],
           include: [mentor: {only: [:name, :job_title, :email, :location, :bio]}]
           }
         },
         {mentee_matches:
           {
-          only: [:mentee_id],
+          only: [:mentee_id, :id],
           include: [mentee: {only: [:name, :job_title, :email, :location, :bio]}]
           }
         },
