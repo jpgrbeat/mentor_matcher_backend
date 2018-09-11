@@ -18,7 +18,7 @@ class UsersController < ApplicationController
           }
         },
         {user_skills: {
-          only: [:number_of_years_experience],
+          only: [:number_of_years_experience,:id],
           include: [
             skill: {only: :name}
           ]
