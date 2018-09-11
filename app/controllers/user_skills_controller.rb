@@ -7,8 +7,12 @@ class UserSkillsController < ApplicationController
   end
 
   def create
-  
     render json: UserSkill.create(user_skill_params)
+  end
+
+  def destroy
+    @user_skill = UserSkill.find(params[:id])
+    render json: @user_skill.destroy()
   end
 
   private
